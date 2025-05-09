@@ -16,7 +16,7 @@ def config_parser():
     parser.add_argument("--datadir", type=str, help='data directory')
     parser.add_argument("--pcdir", type=str, help='point cloud directory')
 
-    parser.add_argument("--version", type=int, help='render version', default=1)
+    parser.add_argument("--version", type=int, help='render version', default=3)
 
     parser.add_argument("--points_per_pixel", type=int, default=8, help='rasterize points_per_pixel')
     parser.add_argument("--use_crop", action='store_true', default=False, help='whether crop when training')

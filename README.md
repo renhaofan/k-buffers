@@ -105,8 +105,46 @@ Pytorch cudnn 90100
 gsplat_version: 1.2.0
 ```
 
+## Data preparation
+Follow the [RadianceMapping](https://github.com/seanywang0408/RadianceMapping) or just download from [baidudisk](https://pan.baidu.com/s/1TqoPuVavzd2TbDAkkRJLcA?pwd=pa1r)
+```
+├── data
+    ├── nerf_synthetic
+    ├── dtu
+    |   ├── dtu_110
+    │   │   │── cams_1
+    │   │   │── image
+    │   │   │── mask
+    │   │   │── npbgpp.ply
+    |   ├── dtu_114
+    |   ├── dtu_118
+    ├── scannet
+    │   │   │──0000
+    |   │   │   │──color_select
+    |   │   │   │──pose_select
+    |   │   │   |──intrinsic
+    |   │   │   |──00.ply
+    │   │   │──0043
+    │   │   │──0045
+    ├── pc
+    |   ├── pointnerf
+    │   │   │── chair_pointnerf.ply
+    │   │   │── drums_pointnerf.ply  
+```
+
+## Training
+```SHELL
+# NPF_BASELINE: bpcr or frepcr
+cd npf
+bash dev_scripts/run_all.sh <GPU_ID> <NPF_BASELINE>
+
+cd gs
+bash dev_scripts/run_bpcr_all.sh <GPU_ID>
+```
+
+
 ## Known BUGs
-In certain case, running `main_fast_k.py` with `arg.version == 1` may trigger the CUDA error. This issue is caused by `gridencoder`, and the default version is currently set to 4.
+In certain case, running `main_fast_k.py` with `arg.version == 1` may trigger the CUDA error. This issue is caused by `gridencoder`, and the default version is currently set to 3.
 ```
 Traceback (most recent call last):
   File "main_fast_k.py", line 188, in <module>
@@ -121,9 +159,8 @@ For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 ```
 
-# simple_trainer_bpcr_blender_BUG.py
-The results in NeRF-Synthetic of 3DGS we reported in paper is from 3DGS original implementation. If you use 
 
+The results in NeRF-Synthetic of 3DGS we reported in paper is from 3DGS original implementation. If you run `simple_trainer_bpcr_blender_BUG.py`  the results are full of strange floaters, which is lower PSNR than original implementation.
 ```
 ============PSNR===========
 chair 35.88718032836914
@@ -137,3 +174,7 @@ ship 30.37014389038086
 --------------------------
 Average: 32.350
 ```
+
+## Updates
+
+* 2025-05-09 Release the code.
