@@ -1,0 +1,12 @@
+__pycache__
+build/
+data/
+dataset/__pycache__/
+dist/
+logs/
+debug_logs/
+model/__pycache__/
+pytorch_rasterizer.egg-info/
+rasterizer/__pycache__/
+.idea/
+.vscode

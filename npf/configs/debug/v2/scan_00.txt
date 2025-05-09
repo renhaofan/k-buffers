@@ -1,0 +1,37 @@
+expname = scan_00
+device = 'cuda:0'
+logdir = ./logs_v2
+datadir = ./data/scannet/0000
+pcdir = ./data/scannet/0000/00_npbg.ply
+dataset = scan
+
+version = 2
+radius = 0.015
+frag_path = './data/fragments/scan_00'
+H = 960
+W = 1200
+train_size = 960
+
+dim = 8
+
+mlp_lr = 5e-4
+u_lr = 1.5e-4
+
+scale_max = 1.
+scale_min = 0.1125
+
+pad = 0
+
+points_per_pixel = 8
+every_k_points = 4
+
+xyznear
+mpn_tiny
+use_crop
+
+U = 4
+udim = npbg
+vgg_l = 0.01
+edge_mask = 20
+test_freq = 10
+vid_freq = 50

@@ -1,0 +1,37 @@
+expname = drums_frepcr
+device = 'cuda:0'
+logdir = ./logs
+datadir = ./data/nerf_synthetic/drums
+pcdir = ./data/pc/pointnerf/drums_pointnerf.ply
+dataset = nerf
+
+radius = 0.005
+frag_path = './data/fragments/drums_pointnerf'
+H = 800
+W = 800
+train_size = 800
+
+dim = 8
+
+mlp_lr = 5e-4
+u_lr = 1.5e-4
+
+scale_max = 1.
+scale_min = 0.111
+
+pad = 100
+
+epochs = 6000
+points_per_pixel = 8
+
+use_crop
+xyznear
+mpn_tiny
+af_mlp
+
+U = 4
+udim = npbg
+vgg_l = 0.01
+edge_mask = 0
+test_freq = 100
+vid_freq = 500

@@ -1,0 +1,39 @@
+expname = scan_45_frepcr
+device = 'cuda:0'
+logdir = ./logs
+datadir = ./data/scannet/0045
+pcdir = ./data/scannet/0045/45_npbg.ply
+dataset = scan
+
+
+radius = 0.015
+frag_path = './data/fragments/scan_45'
+H = 960
+W = 1200
+train_size = 960
+
+dim = 8
+
+mlp_lr = 5e-4
+u_lr = 1.5e-4
+
+scale_max = 1.
+scale_min = 0.089
+
+pad = 0
+
+epochs = 4000
+points_per_pixel = 8
+every_k_points = 4
+
+af_mlp
+xyznear
+mpn_tiny
+use_crop
+
+U = 4
+udim = npbg
+vgg_l = 0.01
+edge_mask = 0
+test_freq = 10
+vid_freq = 50

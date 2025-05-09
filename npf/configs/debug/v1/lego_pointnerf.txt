@@ -1,0 +1,37 @@
+expname = lego
+device = 'cuda:0'
+logdir = ./logs_v1
+datadir = ./data/nerf_synthetic/lego
+pcdir = ./data/pc/pointnerf/lego_pointnerf.ply
+dataset = nerf
+
+version = 1
+radius = 0.005
+frag_path = './data/fragments/lego_pointnerf'
+H = 800
+W = 800
+train_size = 800
+
+dim = 8
+
+mlp_lr = 5e-4
+u_lr = 1.5e-4
+
+scale_max = 1.
+scale_min = 0.111
+
+pad = 100
+
+epochs = 6000
+points_per_pixel = 8
+
+use_crop
+xyznear
+mpn_tiny
+
+U = 4
+udim = npbg
+vgg_l = 0.01
+edge_mask = 0
+test_freq = 100
+vid_freq = 500
