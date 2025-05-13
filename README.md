@@ -159,6 +159,31 @@ For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 ```
 
+```
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [120,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [121,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [122,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [123,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [124,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [125,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [126,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+/opt/conda/conda-bld/pytorch_1704987290659/work/aten/src/ATen/native/cuda/IndexKernel.cu:92: operator(): block: [59829,0,0], thread: [127,0,0] Assertion `-sizes[i] <= index && index < sizes[i] && "index out of bounds"` failed.
+Traceback (most recent call last):
+  File "main_fast_k.py", line 160, in <module>
+    output = renderer(zbuf, idbuf, ray, img_gt, mask_gt,
+  File "/home/renhaofan/.conda/envs/bpcr_pro/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/renhaofan/.conda/envs/bpcr_pro/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/renhaofan/bpcr_kbuffer/model_k/renderer_k.py", line 169, in forward
+    feature_map[unique_pixel_mask] = feature[inverse_indices, :]
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+```
+
 
 The results in NeRF-Synthetic of 3DGS we reported in paper is from 3DGS original implementation. If you run `simple_trainer_bpcr_blender_BUG.py`  the results are full of strange floaters, which is lower PSNR than original implementation.
 ```
